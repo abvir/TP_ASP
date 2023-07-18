@@ -8,19 +8,20 @@ public class Repository : IRepository
      
     public Repository()
     {
+        
         context = new ApiContext();
         context.Companies.AddRange(
                     Enumerable
-                    .Range(0, 2)
+                    .Range(0, 20)
                     .Select(c => new Company()
                     {
-                        CompanyName = $"Company name #{c}",
+                        Name = $"Company name #{c}",
                         City = $"City#{c}",
                         State = $"State#{c}",
                         Address = $"{c}\'th street",
                         Phone = $"({Random.Shared.Next(100, 1000)})-{Random.Shared.Next(100, 1000)}-{Random.Shared.Next(1000, 10000)}",
                         Employees = Enumerable
-                        .Range(0, 2)
+                        .Range(0, 20)
                         .Select(e => new Employee()
                         {
                             LastName = $"LName{e}",
