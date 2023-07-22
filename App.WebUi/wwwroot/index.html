@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Companies</title>
+    <link href="lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="lib/main-styles/index-style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="company-rows-container">
+        <h3>Companies</h3>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-pen" aria-hidden="true"></i>      
+        <table>
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="company-rows"></tbody>
+        </table>
+    </div>
+    <div>
+        
+        <h3>Company detail</h3>
+        <span id="company-detail-name"></span>
+
+        <div id="company-detail-container">
+            <div class="company-detail-block">
+                <h3>Info</h3>
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Id:</td>
+                            <td><input id="company-info-id" /></td>
+                        </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <td><input id="company-info-name" /></td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td><input id="company-info-address" /></td>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td><input id="company-info-city" /></td>
+                        </tr>
+                        <tr>
+                            <td>State:</td>
+                            <td><input id="company-info-state" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="company-detail-block">
+                <h3>History</h3>
+                <i class="fa fa-refresh" aria-hidden="true" onclick="getCurrentCompanyHistory()"></i>
+                <table>
+                    <thead><tr><th>Order Date</th><th>Store City</th></tr></thead>
+                    <tbody id="company-history-rows"></tbody>
+                </table>
+            </div>
+
+            <div class="company-detail-block">
+                <h3>Notes</h3>
+                <i class="fa fa-refresh" aria-hidden="true" onclick="getCurrentCompanyNotes()"></i>
+                <table>
+                    <thead><tr><th>Invoice Number</th><th>Employee</th></tr></thead>
+                    <tbody id="company-note-rows"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="employee-container">
+        <div class="employee-block">
+            <h3>Employee</h3>
+            <i class="fa fa-refresh" aria-hidden="true" onclick="getCurrentCompanyEmployees()"></i>
+            <i class="fa fa-pen" aria-hidden="true"></i>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <table>
+                <thead><tr><th>First Name</th><th>Last Name</th></tr></thead>
+                <tbody id="employee-rows"></tbody>
+            </table>
+        </div>
+        <div class="employee-block">
+            <h3></h3>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            <i class="fa fa-pen" aria-hidden="true"></i>
+            <table>                
+                <tbody>
+                    <tr>
+                        <td>First Name: </td>
+                        <td><input id="employee-detail-firstName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name: </td>
+                        <td><input id="employee-detail-lastName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Title: </td>
+                        <td><input id="employee-detail-title" /></td>
+                    </tr>
+                    <tr>
+                        <td>Birth Date: </td>
+                        <td><input id="employee-detail-date" type="date"/></td>
+                    </tr>
+                    <tr>
+                        <td>Position: </td>
+                        <td><input id="employee-detail-position" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="lib/main-scripts/index-script.js"></script>
+</body>
+</html>
