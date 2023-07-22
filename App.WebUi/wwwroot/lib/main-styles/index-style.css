@@ -1,1 +1,90 @@
-﻿
+﻿* {
+    font-family: "Segoe UI";
+}
+
+#company-rows-container{
+    width: fit-content;
+    display: block;
+    padding:15px;
+}
+
+h3 {
+    color: #555;
+    margin: 5px;
+    display:inline;
+}
+
+.fa {
+    float: right;
+    margin: 5px;
+}
+
+table,thead,tbody,tr,td,th{
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+table {
+    border: 1px solid #ccc;
+    margin:10px 0 ;
+}
+
+thead > tr > th {
+    color: #777;
+    font-weight: 600;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+tbody > tr > td {
+    color: #777;
+    font-weight: 600;
+    border-left: 1px solid #ccc;
+    padding: 10px;
+}
+
+input {
+    color: #555;
+    font-size: 100%;
+    font-family:"Verdana";
+    border: 1px solid #ddd;
+    padding:5px;
+}
+
+#company-detail-container {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+}
+
+.company-detail-block {
+    
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height:fit-content;
+    width:fit-content;
+    margin:10px;   
+    padding: 10px;
+}
+
+#employee-container {
+    margin:10px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    width: fit-content;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+}
+
+.employee-block {
+    height: fit-content;
+    width: fit-content;
+    margin: 10px;
+}
+
