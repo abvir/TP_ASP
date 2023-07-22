@@ -20,8 +20,10 @@ public class Employee
     public string Position { get; set; } = null!;
 
     public int CompanyId { get; set; }
+    public Company? Company { get; set; }
 
     public List<Note> Notes { get; set; } = new();
 
+    public string FullName => $"{FirstName} {LastName}";
    
 }

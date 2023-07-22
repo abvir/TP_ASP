@@ -8,84 +8,12 @@
     <link href="lib/main-styles/index-style.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <span class="title">Companies</span>
-        <span class="buttons">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-        </span>
-    </header>
-    <div class="table">
-          
+    <div>
+        <h2>Companies</h2>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
     </div>
-    <script>
-        async function getCompanies() {
-            const response = await fetch("/api/companies", {
-                method: "GET",
-                headers: { "Accept": "application/json" }
-            });
-            const companies = await response.json();
-            const rows = document.getElementsByClassName("table")[0];
-            rows.append(addHeader());
-            companies.forEach(company => rows.append(row(company)));
-        }
 
-        function row(company) {
-            const div = document.createElement("div");
-            div.setAttribute("class", "row");
-            div.setAttribute("data-rowid", company.id);
-
-            const nameTd = document.createElement("a");
-            nameTd.setAttribute("class", "cell");
-            nameTd.setAttribute("href", `/detail/${company.id}`);
-            nameTd.append(company.name);
-            div.append(nameTd); 
-
-            const cityTd = document.createElement("div");
-            cityTd.setAttribute("class", "cell");
-            cityTd.append(company.city);
-            div.append(cityTd); 
-
-            const stateTd = document.createElement("div");
-            stateTd.setAttribute("class", "cell");
-            stateTd.append(company.state);
-            div.append(stateTd); 
-
-            const phoneTd = document.createElement("div");
-            phoneTd.setAttribute("class", "cell");
-            phoneTd.append(company.phone);
-            div.append(phoneTd); 
-
-            return div;
-        }
-
-        function addHeader() {
-            const div = document.createElement("div");
-            div.setAttribute("class", "row rhead");
-
-            const nameTd = document.createElement("div");
-            nameTd.setAttribute("class", "cell  rhead");
-            nameTd.append("Company Name");
-            div.append(nameTd);
-
-            const cityTd = document.createElement("div");
-            cityTd.setAttribute("class", "cell  rhead");
-            cityTd.append("City");
-            div.append(cityTd);
-
-            const stateTd = document.createElement("div");
-            stateTd.setAttribute("class", "cell  rhead");
-            stateTd.append("State");
-            div.append(stateTd);
-
-            const phoneTd = document.createElement("div");
-            phoneTd.setAttribute("class", "cell  rhead");
-            phoneTd.append("Phone");
-            div.append(phoneTd);
-
-            return div;
-        }
-        getCompanies();
-    </script>
+    <script src="lib/main-scripts/index-script.js"></script>
 </body>
 </html>

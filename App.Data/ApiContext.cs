@@ -16,13 +16,8 @@ public class ApiContext : DbContext
 
     public ApiContext()
     {
-
-       
         Database.EnsureDeleted();
         Database.EnsureCreated();
         
-    }
-
-    
-    
+    }   
 }

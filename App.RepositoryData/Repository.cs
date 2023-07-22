@@ -1,6 +1,7 @@
-﻿using App.Data.Models;
+﻿using App.Data;
+using App.Data.Models;
 
-namespace App.Data;
+namespace App.RepositoryData;
 
 public class Repository : IRepository
 {
@@ -12,7 +13,7 @@ public class Repository : IRepository
         context = new ApiContext();
         context.Companies.AddRange(
                     Enumerable
-                    .Range(0, 20)
+                    .Range(1, 2)
                     .Select(c => new Company()
                     {
                         Name = $"Company name #{c}",
@@ -21,7 +22,7 @@ public class Repository : IRepository
                         Address = $"{c}\'th street",
                         Phone = $"({Random.Shared.Next(100, 1000)})-{Random.Shared.Next(100, 1000)}-{Random.Shared.Next(1000, 10000)}",
                         Employees = Enumerable
-                        .Range(0, 20)
+                        .Range(1, 3)
                         .Select(e => new Employee()
                         {
                             LastName = $"LName{e}",
@@ -31,9 +32,10 @@ public class Repository : IRepository
                             Position = $"Position #{e}",
                             Title = (Title)Random.Shared.Next(0, Enum.GetValues<Title>().Length),
                             Notes = Enumerable.Range(1, Random.Shared
-                            .Next(0, 2))
+                            .Next(2, 3))
                             .Select(n => new Note()
                             {
+                                CompanyId = c,
                                 EmployeeId = e,
                                 InvoiceNumber = Random.Shared.Next(30000, 35000)
                             }).ToList()
@@ -48,9 +50,12 @@ public class Repository : IRepository
                         }).ToList()
                     }).ToList()
 
-                );
+                ); ;
         context.SaveChanges();
     }
 
-    public List<Company> Companies => context.Companies.ToList();
+    public IEnumerable<CompanyRow> GetCompanyRows()
+    {
+       return context.Companies.Select(s => new CompanyRow(s.Id, s.Name, s.City, s.State, s.Phone));
+    }
 }
